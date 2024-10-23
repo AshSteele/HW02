@@ -32,10 +32,10 @@ _Write your text to answer exercise 1a here (Please delete this message before s
 
 ```{r ex1b, out.width="80%"}
 # Write your code for Ex1b here
-
-
-
-
+run17 %>%
+  filter(event == "5K") %>%
+  ggplot(mapping = aes(x = age)) +
+  geom_histogram()
 
 ```
 
@@ -47,8 +47,14 @@ _Write your text to answer exercise 1b here (Please delete this message before s
 
 ```{r ex2, out.width = "80%"}
 # Write your code to answer exercise 2a here
-
-
+run17 %>%
+  mutate(net_min = net_sec / 60) %>%
+  ggplot(mapping = aes(x = net_min)) +
+  geom_boxplot() +
+  facet_grid(event~sex) +
+  coord_flip() +
+  labs(x = "Time taken (minutes)",
+       title = "Race time distribution for Cherryblossom")
 
 
 ```
@@ -62,7 +68,10 @@ _Write your text to answer exercise 2b here (Please delete this message before s
 
 ```{r ex3, out.width = "80%"}
 # Write your code to answer exercise 3 here
-
+run17 %>%
+  filter(event == "10 Mile")
+  
+  
 
 
 
